@@ -80,6 +80,8 @@ $ ls -a
 
 Most of these files contain configuration data for other programs and you may or may not have all of them.  Notice all of the hidden files start with a *period*.
 
+There are a couple of other files of interest here as well.  Notice the ```.``` and the ```..```?  These represent the current directory and the parent directory.
+
 #### Additional options
 There are many options for ls, but some of the options that I have found most useful are the ```-l```, ```-t``` option and the ```-r``` option.  The ```-t``` options tells ```ls``` to sort by decending time and ```-r``` will reverse it.  The ```-l``` option will use a long list format and give you information such as permissions and modification times.  If you have a directory with a large amount of files and you need to see which ones have been accessed recently (and when) just type:
 
@@ -87,7 +89,7 @@ There are many options for ls, but some of the options that I have found most us
 $ ls -altr
 ```
 
-Your newest files will be listed at the bottom
+Your newest files will be listed at the bottom.
 
 ### Creating a new folder
 
@@ -141,6 +143,7 @@ Before we go any further, there are files that we will be using for this series 
 
 ```text
 $ git clone https://github.com/wsuops/hpcc-training.git
+```
 
 Once this is done, you should have a folder named ***hpcc-training*** in your tutorials directory.
 
@@ -206,6 +209,14 @@ $ tail -20 testdata/shakespeare-comedy-7.txt
 ```
 
 When using ***more*** or ***less*** you can press the ***Q*** key to exit before the end of the file.
+
+### Copying files
+
+Use the ```cp``` command to copy one of our shakespeare files to the current directory:
+
+```text
+$ cp testdata/shakespeare-comedy-7.txt .
+```
 
 ### Removing files and directories
 

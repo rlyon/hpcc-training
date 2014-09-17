@@ -9,13 +9,13 @@ The HPC user guide is designed to serve as an introduction to the WSU high perfo
 
 ### Guides
 
-* [Connecting to the cluster](/connecting)
-* [The shell](/shell)
-* [Environment modules](/modules)
-* [Shell Scripts](/shell-scripts)
-* [Job Submission](/job-submission)
-* [Using Qsub](/using-qsub)
-* [Job Information](/job-information)
+* [Connecting to the cluster](/hpcc-training/connecting)
+* [The shell](/hpcc-training/shell)
+* [Environment modules](/hpcc-training/modules)
+* [Shell Scripts](/hpcc-training/shell-scripts)
+* [Job Submission](/hpcc-training/job-submission)
+* [Using Qsub](/hpcc-training/using-qsub)
+* [Job Information](/hpcc-training/job-information)
 
 ### Inline help
 

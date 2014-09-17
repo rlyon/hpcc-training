@@ -1,6 +1,6 @@
 ---
 layout: default
-title: HPCC Tutorials
+title: HPCC Guides
 ---
 
 Our HPC systems are available to serve the computational need of the WSU researchers.  This means that WSU employees and students that are engaged in research may request accounts on the system.

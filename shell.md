@@ -46,17 +46,17 @@ Last login: Mon Jul 28 12:10:06 2014 from 134.121.10.42
  HOME       74500.0   34308.0    53.95%   112.0   5120.0    2.19%
  SCRATCH    33467.0    7234.0    78.38%     0.0      0.0     0.0%
  
- go.cougs@login1 ~ $
+$
 ```
 
-***Note:  When creating this tutorial, my prompt was "go.cougs@login1 ~ $", the commands you will be typing are found to the right of the "$".  Don't type the prompt.***
+***Note:  When creating this tutorial, my prompt was "$", the commands you will be typing are found to the right of the "$".  Don't type the prompt.***
 
 ### Viewing the command help pages
 
 At anytime you can view the help pages for the commands that will be used throughout the tutorial to get information about what the command does, options, and even some examples by typing ***man*** (manual) and then the command name.  In otherwords, to find out more information on the ***ls*** command that we will be using next, type:
 
 ```text
-go.cougs@login1 ~ $ man ls
+$ man ls
 ```
 
 Use the up and down arrows on your keyboard to go forward and backward and use the ***Q*** key to exit the manual
@@ -66,31 +66,35 @@ Use the up and down arrows on your keyboard to go forward and backward and use t
 At this point you should have no visible files or folders in your home directory.  You can use the ***ls*** or 'list' command to check:
 
 ```text
-go.cougs@login1 ~ $ ls
-go.cougs@login1 ~ $
+$ ls
 ```
 
 As you can see there was nothing returned, but there are some files there.  Linux and Unix have the concept of *hidden files* that do not show up in the regular output.  You can see your hidden files by adding an option to the ***ls*** command that will tell ***ls*** to also show hidden files.
 
 ```text
-go.cougs@login1 ~ $ ls -a
+$ ls -a
 .              .bash_logout   .clcbio     .lesshst  .rvm       .viminfo      .zlogin
 ..             .bash_profile  .curlrc     .profile  .ssh       .Xauthority   .zshrc
 .bash_history  .bashrc        .install4j  .psrc     .tempstor  .x-formation
-go.cougs@login1 ~ $ 
 ```
 
 Most of these files contain configuration data for other programs and you may or may not have all of them.  Notice all of the hidden files start with a *period*.
 
-### Creating a new folder
-
-Folders are used to organize your files.  To create a new folder, use the command ***mkdir*** or 'make directory'.  Make a folder called 'tutorial'
+#### Additional options
+There are many options for ls, but some of the options that I have found most useful are the ```-t``` option and the ```-r``` option.  The ```-t``` options tells ```ls``` to sort by decending time and ```-r``` will reverse it.  If you have a directory with a large amount of files and you need to see which ones have been accessed recently just type:
 
 ```text
-go.cougs@login1 ~ $ mkdir tutorial
-go.cougs@login1 ~ $ ls
+$ ls -altr
+```
+
+### Creating a new folder
+
+Folders are used by Linux to organize files.  To create a new folder, use can use the command ***mkdir*** or 'make directory'.  In Linux Make a folder called 'tutorial' and check to see if it is there.
+
+```text
+$ mkdir tutorial
+$ ls
 tutorial
-go.cougs@login1 ~ $
 ```
 
 ### Enter the folder
@@ -98,8 +102,7 @@ go.cougs@login1 ~ $
 You can use the ***cd*** command or 'change directory' to navigate through your folders.  To move into the tutorial folder you just created, type:
 
 ```text
-go.cougs@login1 ~ $ cd tutorial
-go.cougs@login1 ~/tutorial $
+$ cd tutorial
 ```
 
 If you type ***cd*** without a folder name, it will automatically take you back to the top of your home directory.  
@@ -107,58 +110,62 @@ If you type ***cd*** without a folder name, it will automatically take you back 
 You may also want to move back up a directory.  To do this you can use the special file "***..***" (you may have noticed this in the output of ***ls -a*** above).  The two dots represent the *parent* or *containing* folder and can be used like this:
 
 ```text
-go.cougs@login1 ~/tutorial $ cd ..
-go.cougs@login1 ~ $
+$ cd ..
 ```
+When you type ```ls``` and press enter, you should see the tutorials directory that you created earlier.  Now use ```cd``` to change back to the tutorials directory that you created.
 
-*Before you move on, make sure to change back to the tutorials directory that you created.*
+### The smart way to change directories
 
-### Creating and editing a file
+There are many times that you will run accross cases where you will want to move in and out of several directories.  It can be tough to keep track of the directories that you have entered and left.  The ```pushd``` command can actually keep track of where you have been like breadcrumbs by pushing your current location on to a stack befor it moves to the next directory.  You can then use the ```popd``` to go back to the last location that was pushed.
 
-Although there are several text based editors on our systems, the one that we will focus on will be a simple text editor called ***nano***.  To start nano, 
-type the command:
+To test this out make a few more directories:
 
 ```text
-go.cougs@login1 ~/tutorial $ nano
+$ mkdir -p pushtest/{one,two,three,four}/{a,b,c,d}
 ```
 
-You will be greeted by a screen that looks like:
+There's a bit of handwaving over this command, but needless to say this is a quick way to recursively create a directory structure that is three levels deep. The numbered directories will each have an a, b, c, and d directory.
 
-![Nano](https://dl.dropboxusercontent.com/u/108911615/docimages/nano.png)
-
-Type some words into the editor and when you would like to save the file press the ***control (ctrl)*** and the ***x*** keys a the the same time.  
-
-You will be asked if you want to save the buffer (i.e. all of your changes)
+Use ```pushd``` to wind your way through the directories and see what happens.  Then use ```popd``` to return to where you were.  When you pop back out all the way you may see:
 
 ```text
-Save modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                            
- Y Yes
- N No           ^C Cancel
+$ popd
+-bash: popd: directory stack empty
 ```
 
-If you want to save, press 'Y' otherwise press 'N'.  It will then ask you to type in the filename.  Call it 'hello.txt' and press enter
+### Get the tutorial files
+
+Before we go any further, there are files that we will be using for this series of tutorials, you can get them by cloning the training repository.  Some of you may not know what this means, but we will explain what this is doing in a later tutorial.  For now, just copy the command and type it into your terminal just the way it appears here.
 
 ```text
-File Name to Write: hello.txt                                                           
-^G Get Help           ^T To Files           M-M Mac Format        M-P Prepend
-^C Cancel             M-D DOS Format        M-A Append            M-B Backup File
-```
+$ git clone https://github.com/wsuops/hpcc-training.git
 
-*Note, that on the bottom of the screen, you will see ***^C*** right next to the word 'Cancel'.  When ever you see the ***^*** character, substitute it with the control key.  In otherwords, ***^G*** is ***CNTL + G*** and that key combination will bring up the help pages.*
+Once this is done, you should have a folder named ***hpcc-training*** in your tutorials directory.
+
+```text
+$ ls
+hpcc-training
+```
 
 ### Different ways to interact your files
 
-There are many different ways to access the information stored in your files.  The most common are the ***cat***, ***more***, ***less***, ***head*** and ***tail*** commands.  To view the file contents of hello.txt run:
+The files that we are going to be using are found in the hpcc-training directory so lets change to it.
 
 ```text
-go.cougs@login1 ~/tutorial $ cat hello.txt 
+cd hpcc-training
+```
+
+There are many different ways to access the information stored in your files.  The most common are the ***cat***, ***more***, ***less***, ***head*** and ***tail*** commands.  To view the file contents of hello.txt file that is in the directory run the ```cat``` command with the filename as the argument:
+
+```text
+$ cat hello.txt
 Hello
 ```
 
-The command ***cat*** stands for *concatenate* and can take as many files as you want.  Use the nano to create another file called *world.txt* and save it.  You can concatenate the output of both files together by running the command:
+The command ***cat*** stands for *concatenate* and can take as many files as you want.  You can concatenate the output of many files together by running the cat command with all of the files as arguments:
 
 ```text
-go.cougs@login1 ~/tutorial $ cat hello.txt world.txt 
+$ cat hello.txt world.txt 
 Hello
 World
 ```
@@ -166,33 +173,34 @@ World
 This command does not actually change your files.  It outputs the contents to the screen.  You can capture this output and put it into a new file by using a method called ***redirection***.  To *redirect* the output to a new file you can use ***>*** of ***>>*** after the command with the name of a new file.  The single ***>*** will overwrite all the contents in the file with the new contents you are redirecting into it, while the double will append the new contents to the end of the file. 
 
 ```text
-go.cougs@login1 ~/tutorial $ cat hello.txt world.txt > helloworld.txt
-go.cougs@login1 ~/tutorial $ cat helloworld.txt 
+$ cat hello.txt world.txt > helloworld.txt
+$ cat helloworld.txt 
 Hello
 World
-go.cougs@login1 ~/tutorial $ cat hello.txt world.txt >> helloworld.txt
-go.cougs@login1 ~/tutorial $ cat helloworld.txt 
+$ cat hello.txt world.txt >> helloworld.txt
+$ cat helloworld.txt 
 Hello
 World
 Hello
 World
 ```
 
-For large files, the ***cat*** command will output all of the file contents without stoping.  You can use the ***more*** command to page through the contents of a large file.  The ***less*** command is a paging utility like the ***more*** command, but it also allows you to page backwards.  The ***head*** and ***tail*** command show the first and last few lines of a file.  You can control the number of lines shown by adding a dash and then the number of lines (e.g. ***-10***)
-
-Try them out by downloading a large file with the following command:
+For large files, the ***cat*** command will output all of the file contents without stoping.
 
 ```text
-go.cougs@login1 ~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-comedy-7.txt
+$ cat testdata/shakespeare-comedy-7.txt
 ```
+
+You can use the ***more*** command to page through the contents of a large file.  The ***less*** command is a paging utility like the ***more*** command, but it also allows you to page backwards.  The ***head*** and ***tail*** command show the first and last few lines of a file.  You can control the number of lines shown by adding a dash and then the number of lines (e.g. ***-10***)
+
 
 You can then use the following commands:
 
 ```text
-go.cougs@login1 ~/tutorial $ more shakespeare-comedy-7.txt
-go.cougs@login1 ~/tutorial $ less shakespeare-comedy-7.txt
-go.cougs@login1 ~/tutorial $ head -20 shakespeare-comedy-7.txt
-go.cougs@login1 ~/tutorial $ tail -20 shakespeare-comedy-7.txt
+$ more testdata/shakespeare-comedy-7.txt
+$ less testdata/shakespeare-comedy-7.txt
+$ head -20 testdata/shakespeare-comedy-7.txt
+$ tail -20 testdata/shakespeare-comedy-7.txt
 ```
 
 When using ***more*** or ***less*** you can press the ***Q*** key to exit before the end of the file.
@@ -202,24 +210,24 @@ When using ***more*** or ***less*** you can press the ***Q*** key to exit before
 Use the ***rm*** command to remove files
 
 ```text
-go.cougs@login1 ~/tutorial $ ls
+$ ls
 hello.txt  helloworld.txt  shakespeare-comedy-7.txt  world.txt
-go.cougs@login1 ~/tutorial $ rm helloworld.txt 
-go.cougs@login1 ~/tutorial $ ls
+$ rm helloworld.txt 
+$ ls
 hello.txt  shakespeare-comedy-7.txt  world.txt
-go.cougs@login1 ~/tutorial $
+$
 ```
 
 To remove a directory you will use the same command but use the ***-r*** option to recursivly remove all of the files in the directory at the same time.  If you do not specify the ***-r*** when trying to remove a directory the command will fail.
 
 ```text
-go.cougs@login1 ~/tutorial $ mkdir -p removeme
-go.cougs@login1 ~/tutorial $ ls
+$ mkdir -p removeme
+$ ls
 hello.txt  removeme  shakespeare-comedy-7.txt  world.txt
-go.cougs@login1 ~/tutorial $ rm removeme
+$ rm removeme
 rm: cannot remove `removeme': Is a directory
-go.cougs@login1 ~/tutorial $ rm -r removeme
-go.cougs@login1 ~/tutorial $ ls
+$ rm -r removeme
+$ ls
 hello.txt  shakespeare-comedy-7.txt  world.txt
 ```
 
@@ -228,10 +236,10 @@ hello.txt  shakespeare-comedy-7.txt  world.txt
 To rename a file you can use the ***mv*** (move) command or the ***rename*** command.  Move is the simplest form of renaming a file, to test this out type ***mv*** with the original file name and the new file name:
 
 ```text
-go.cougs@login1 ~/tutorial $ ls
+$ ls
 hello.txt  moved  shakespeare-comedy-7.txt  world.txt
-go.cougs@login1 ~/tutorial $ mv world.txt World.txt
-go.cougs@login1 ~/tutorial $ ls
+$ mv world.txt World.txt
+$ ls
 hello.txt  moved  shakespeare-comedy-7.txt  World.txt
 
 ```
@@ -239,10 +247,10 @@ hello.txt  moved  shakespeare-comedy-7.txt  World.txt
 The rename command gives you a little more flexibility when it comes to renaming multiple files at the same time.  Let's say that you wanted to take all of your text files in your directory and rename them to have a *.backup* extension before you started creating new ones.  You could use the ***rename*** command to take the .txt extension and turn it into .txt.backup
 
 ```text
-go.cougs@login1 ~/tutorial $ ls
+$ ls
 hello.txt  moved  shakespeare-comedy-7.txt  World.txt
-go.cougs@login1 ~/tutorial $ rename .txt .txt.backup *.txt
-go.cougs@login1 ~/tutorial $ ls
+$ rename .txt .txt.backup *.txt
+$ ls
 hello.txt.backup  moved  shakespeare-comedy-7.txt.backup  World.txt.backup
 ```
 
@@ -251,10 +259,10 @@ hello.txt.backup  moved  shakespeare-comedy-7.txt.backup  World.txt.backup
 You can also move or rename entire directories along with their contents.
 
 ```text
-go.cougs@login1 ~/tutorial $ mkdir -p moveme/{1,2,3,4}
-go.cougs@login1 ~/tutorial $ ls moveme
+$ mkdir -p moveme/{1,2,3,4}
+$ ls moveme
 1  2  3  4
-go.cougs@login1 ~/tutorial $ mv moveme moved
-go.cougs@login1 ~/tutorial $ ls moved
+$ mv moveme moved
+$ ls moved
 1  2  3  4
 ```

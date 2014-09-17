@@ -248,6 +248,9 @@ pre {
 pre code {
   color: #f8f8f2;
 }
+p code {
+  color: #f8f8f2;
+}
 li pre {
   margin-left: -60px;
   padding-left: 60px;

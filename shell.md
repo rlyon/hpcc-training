@@ -81,11 +81,13 @@ $ ls -a
 Most of these files contain configuration data for other programs and you may or may not have all of them.  Notice all of the hidden files start with a *period*.
 
 #### Additional options
-There are many options for ls, but some of the options that I have found most useful are the ```-t``` option and the ```-r``` option.  The ```-t``` options tells ```ls``` to sort by decending time and ```-r``` will reverse it.  If you have a directory with a large amount of files and you need to see which ones have been accessed recently just type:
+There are many options for ls, but some of the options that I have found most useful are the ```-l```, ```-t``` option and the ```-r``` option.  The ```-t``` options tells ```ls``` to sort by decending time and ```-r``` will reverse it.  The ```-l``` option will use a long list format and give you information such as permissions and modification times.  If you have a directory with a large amount of files and you need to see which ones have been accessed recently (and when) just type:
 
 ```text
 $ ls -altr
 ```
+
+Your newest files will be listed at the bottom
 
 ### Creating a new folder
 

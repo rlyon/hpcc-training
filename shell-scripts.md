@@ -23,20 +23,20 @@ The second line contains the ```echo``` command, which does exactly what it's na
 Save the file as ```hello.sh``` and exit the editor.  Before you can 'run' your script, you will need to do one more thing.  If you were to try to run it right now, you would see the following:
 
 ```text
-go.cougs@login1 ~ $ ./hello.sh
+$ ./hello.sh
 -bash: ./hello.sh: Permission denied
 ```
 
 In order to run a script, you will need to let the operating system know that it is the kind of file that can be run.  To do this, you will use the ```chmod``` or *change mode* program with the ```+x``` or *add execute permissions* to set the appropriate permissions.
 
 ```text
-go.cougs@login1 ~ $ chmod +x hello.sh
+$ chmod +x hello.sh
 ```
 
 Once you have set the execute permissions on the file you will be able to run it:
 
 ```text
-go.cougs@login1 ~ $ ./hello.sh 
+$ ./hello.sh 
 Hello world!
 ```
 
@@ -47,11 +47,11 @@ Congratulations!  You have just created your first shell script.  Now let's actu
 To give us some files to work with, download some files containing the text of several plays by Shakespeare.
 
 ```text
-go.cougs@login1 ~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-comedy-7.txt
-go.cougs@login1 ~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-hamlet-25.txt
-go.cougs@login1 ~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-romeo-48.txt
-go.cougs@login1 ~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-taming-2.txt
-go.cougs@login1 ~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-tragedy-58.txt
+~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-comedy-7.txt
+~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-hamlet-25.txt
+~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-romeo-48.txt
+~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-taming-2.txt
+~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-tragedy-58.txt
 ```
 
 We will be creating a shell script that will provide us some statistics on the files including the number of characters, words, and lines.  To do this, you will learn about environment variables, arguments, and several new commands to mine information from files.
@@ -68,7 +68,7 @@ wc shakespeare-comedy-7.txt
 Use the ```chmod``` command to give the file execute permissions and run it:
 
 ```text
-go.cougs@login1 ~/tutorial $ ./stats.sh 
+~/tutorial $ ./stats.sh 
  2851 16252 89439 shakespeare-comedy-7.txt
 ```
 
@@ -79,7 +79,7 @@ The ```wc``` command has given us the number of lines (2851), the number of word
 Pipes are similar to the *redirection* concept that you learned in the previous section, but instead of redirecting the output to a file we send the output of one command to the input of another by connecting them with the ```|``` character.  To see this in action, type the following command:
 
 ```text
-go.cougs@login1 ~/tutorial $ echo "This goes to the next command" | wc
+~/tutorial $ echo "This goes to the next command" | wc
       1       6      30
 ```
 
@@ -102,9 +102,9 @@ LOGNAME=go.cougs
 The shell gives you access to these variables so you can work within the environment and also customize your experience.  You can use ```echo``` to view these variables seperately, or you can use them in other ways to create paths, customize output, or determine what to do.  Notice that when you want to access the information in a variable, you use a ```$``` at the beginning of the name.
 
 ```text
-go.cougs@login1 ~/tutorial $ echo $HOSTNAME
+~/tutorial $ echo $HOSTNAME
 login1
-go.cougs@login1 ~/tutorial $ echo $USER
+~/tutorial $ echo $USER
 go.cougs
 ```
 
@@ -129,7 +129,7 @@ If we go through this line by line, we store the output from the ```wc``` comman
 When it is run we get the following output:
 
 ```text
-go.cougs@login1 ~/tutorial $ ./stats.sh 
+~/tutorial $ ./stats.sh 
 Lines: 2851
 Words: 16252
 Characters: 89439
@@ -194,14 +194,14 @@ We added the conditional, checking the special variable ```$#``` to see if there
 If everything works, you will see:
 
 ```text
-go.cougs@login1 ~/tutorial $ ./stats.sh 
+~/tutorial $ ./stats.sh 
 You need to give me a filename!
-go.cougs@login1 ~/tutorial $ ./stats.sh shakespeare-comedy-7.txt 
+~/tutorial $ ./stats.sh shakespeare-comedy-7.txt 
 Getting stats for shakespeare-comedy-7.txt
 Lines: 2851
 Words: 16252
 Characters: 89439
-go.cougs@login1 ~/tutorial $ ./stats.sh shakespeare-romeo-48.txt 
+~/tutorial $ ./stats.sh shakespeare-romeo-48.txt 
 Getting stats for shakespeare-romeo-48.txt
 Lines: 4579
 Words: 25919
@@ -254,12 +254,12 @@ To process multiple files we start off by adjusting the conditional statement to
 If everything works you will see:
 
 ```text
-go.cougs@login1 ~/tutorial $ ./stats.sh shakespeare-romeo-48.txt 
+~/tutorial $ ./stats.sh shakespeare-romeo-48.txt 
 Getting stats for shakespeare-romeo-48.txt
 Lines: 4579
 Words: 25919
 Characters: 144138
-go.cougs@login1 ~/tutorial $ ./stats.sh shakespeare-comedy-7.txt shakespeare-romeo-48.txt 
+~/tutorial $ ./stats.sh shakespeare-comedy-7.txt shakespeare-romeo-48.txt 
 Getting stats for shakespeare-comedy-7.txt
 Lines: 2851
 Words: 16252
@@ -273,7 +273,7 @@ Characters: 144138
 It works for a single file and multiple files, but as a bonus we can also use wildcards and bash will expand them to include all of the matching files:
 
 ```text
-go.cougs@login1 ~/tutorial $ ./stats.sh *.txt 
+~/tutorial $ ./stats.sh *.txt 
 Getting stats for shakespeare-comedy-7.txt
 Lines: 2851
 Words: 16252

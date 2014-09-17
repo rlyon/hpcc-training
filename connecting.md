@@ -3,19 +3,6 @@ layout: default
 title: Connecting to the Cluster
 ---
 
-## Understanding clusters
-
-To understand the environment you will be working in, you will need to understand the parts.  Our high performance compute clusters are made up 4 distinct parts:
-
-1. ***Login Nodes:*** The login nodes are systems that are set up for you to interact with the cluster.  You will initially connect to these systems and they will have all the tools required for you to begin processing your data and submitting jobs to the cluster.
-2. ***Management Nodes:***  Although you won't access these systems directly, they will be influencing everything that you do on the cluster.  The management nodes have all of the software required to schedule and monitor resources, authenticate your log in requests, and manage your jobs that will be run.
-3. ***Execution Nodes:***  The execution nodes accept jobs from the queue and run them.  These systems and the running jobs are controlled by the management nodes.
-4. ***Storage Nodes:***  The storage nodes hold all of your data.  Your home directory lives there as well as faster *scratch* or *temporary* space that you can use for even faster data access.  The login nodes and execution nodes contact the storage systems and attach the directories (folders), so your data can be accessed in the same place across all of the HPC systems.
- 
-All four of these components work together to manage and run your jobs.  To learn more you can visit the [Linux Clusters website](http://www.linuxclusters.com/).
-
-## Connecting to the cluster
-
 The WSU HPC cluster is a Linux based system that uses SSH to allow users to connect to a pseudo terminal (a fancy name for a command line or text device).  You will need to become comfortable operating in a command line environment and using the SSH program.  
 
 For OSX you can use the ***Terminal*** application and Linux has several including ***XTerm*** and ***Gnome Terminal***.  

@@ -3,9 +3,6 @@ layout: default
 title: Submitting Jobs to the Cluster
 ---
 
-
-# Submitting Jobs to the Cluster
-
 At it's core, submitting a job to the cluster requires little more than adding the command that you would like to run to a text file much like the scripts that you created previously and passing that file to a program called qsub.  In fact, by default, the batch server will treat the file that is passed as a bash script.   
 
 ## Submission Scripts

@@ -3,11 +3,6 @@ layout: default
 title: HPCC Tutorials
 ---
 
-# HPCC Tutorials
-
-
-### Introduction
-
 Our HPC systems are available to serve the computational need of the WSU researchers.  This means that WSU employees and students that are engaged in research may request accounts on the system.
 
 The HPC user guide is designed to serve as an introduction to the WSU high performance computing systems and working in a Linux environment.  It covers several topics including connecting to the systems, navigating through the command line environment, writing shell scripts and submitting jobs to the cluster.  As new content is generated it will be posted in the guide.
@@ -16,7 +11,7 @@ The HPC user guide is designed to serve as an introduction to the WSU high perfo
 
 * [Connecting to the cluster](/connecting)
 * [The shell](/shell)
-* [Environment modules](/environment-modules)
+* [Environment modules](/modules)
 * [Shell Scripts](/shell-scripts)
 * [Job Submission](/job-submission)
 * [Using Qsub](/using-qsub)

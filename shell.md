@@ -3,8 +3,6 @@ layout: default
 title: The Shell
 ---
 
-# The Shell
-
 Now that you have logged into the cluster, you are now in what is called ***the shell***.  This shell is a text driven program that will help you navigate the complexities of the operating system.  You type in commands and the shell responds to you with output.
 
 There are many different ***shells*** available for Linux.  By default you will be using the ***bourne-again shell*** shell or ***bash*** which was created as a free replacement to an older shell - ***sh*** - written by a programmer named Bourne.  You can find many great tutorials online that will teach you how to navigate in ***bash***.

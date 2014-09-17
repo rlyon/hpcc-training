@@ -3,8 +3,6 @@ layout: default
 title: Job Information
 ---
 
-# Getting Information About Jobs
-
 There are several tools that are available for getting information about the jobs that run on our cluster.  The most common tools you will use are qstat and showq. 
 
 ## qstat

@@ -3,8 +3,6 @@ layout: default
 title: Writing Shell Scripts
 ---
 
-# Writing Shell Scripts
-
 Many things that you want to do on the HPC systems will require alot of commands run in a specific order.  Formating your data, submitting jobs to the cluster, and parsing job results are just a few things that could take alot of time if you were to do this by hand.  More than likely you will need to do this more than once, which means you may be stuck typing at your keyboard instead of coming up with the next scientific breakthrough.  That's where shell scripting comes in.
 
 ## Your first shell script

@@ -3,8 +3,6 @@ layout: default
 title: Connecting to the Cluster
 ---
 
-# Connecting to the cluster
-
 ## Understanding clusters
 
 To understand the environment you will be working in, you will need to understand the parts.  Our high performance compute clusters are made up 4 distinct parts:

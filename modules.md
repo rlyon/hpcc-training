@@ -3,8 +3,6 @@ layout: default
 title: Environment Modules
 ---
 
-# Environment Modules
-
 Because we need to manage multiple versions of software, most of our software is not installed in the standard paths that you would normally find executable files.  To customize the users environment we use a utility called **environment modules**.  This program manages all of the various paths and environment variables required for you to access the software on the cluster.  
 
 ## Using the module command

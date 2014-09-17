@@ -217,6 +217,7 @@ Use the ```cp``` command to copy one of our shakespeare files to the current dir
 ```text
 $ cp testdata/shakespeare-comedy-7.txt .
 ```
+To copy a directory you can use ***-r*** to copy all files recursively.
 
 ### Removing files and directories
 

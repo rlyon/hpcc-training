@@ -8,14 +8,19 @@ Our HPC systems are available to serve the computational need of the WSU researc
 The HPC user guide is designed to serve as an introduction to the WSU high performance computing systems and working in a Linux environment.  It covers several topics including connecting to the systems, navigating through the command line environment, writing shell scripts and submitting jobs to the cluster.  As new content is generated it will be posted in the guide.
 
 ### Guides
+* [A brief history of supercomputing](/hpcc-training/history)
+* [Uses and common misconceptions](/hpcc-training/faqs)
 * [Understanding the components](/hpcc-training/understanding)
 * [Connecting to the cluster](/hpcc-training/connecting)
+* [Editing files](/hpcc-training/editing-files)
 * [The shell](/hpcc-training/shell)
 * [Environment modules](/hpcc-training/modules)
 * [Shell Scripts](/hpcc-training/shell-scripts)
 * [Job Submission](/hpcc-training/job-submission)
 * [Using Qsub](/hpcc-training/using-qsub)
 * [Job Information](/hpcc-training/job-information)
+* [Introduction to MPI](/hpcc-training/mpi-intro)
+* [Submitting MPI](/hpcc-training/mpi-submission)
 
 ### Inline help
 

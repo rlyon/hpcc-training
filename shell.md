@@ -123,7 +123,7 @@ The asterisk can be used to specify any number or type of character.  It will ma
 
 Will match everything with a ***.txt*** extension, no matter what the file name is.
 
-#### [] (square brackets)
+#### \[\] (square brackets)
 
 Square brackets specify a range with an explicit ***or*** relationship.  Meaning you only need one to match.  The following pattern will match dig, dog or dug.  
 

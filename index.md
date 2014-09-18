@@ -9,7 +9,7 @@ The HPC user guide is designed to serve as an introduction to the WSU high perfo
 
 ### Guides
 * [A brief history of supercomputing](/hpcc-training/history)
-* [Uses and common misconceptions](/hpcc-training/faqs)
+* [Uses and common misconceptions](/hpcc-training/uses-and-misconceptions)
 * [Understanding the components](/hpcc-training/understanding)
 * [Connecting to the cluster](/hpcc-training/connecting)
 * [Editing files](/hpcc-training/editing-files)
@@ -17,7 +17,7 @@ The HPC user guide is designed to serve as an introduction to the WSU high perfo
 * [Environment modules](/hpcc-training/modules)
 * [Shell Scripts](/hpcc-training/shell-scripts)
 * [Job Submission](/hpcc-training/job-submission)
-* [Using Qsub](/hpcc-training/using-qsub)
+* [Qsub Basics](/hpcc-training/qsub-basics)
 * [Job Information](/hpcc-training/job-information)
 * [Introduction to MPI](/hpcc-training/mpi-intro)
 * [Submitting MPI](/hpcc-training/mpi-submission)

@@ -17,39 +17,11 @@ Since there are many tutorials on how to use bash out there already, we will onl
 $ ssh go.cougs@hpclogin1
 go.cougs@hpclogin1's password: 
 Last login: Mon Jul 28 12:10:06 2014 from 134.121.10.42
-          __      __ ___  _   _   _  _  __    ___  ___
-          \ \    / // __|| | | | | || || _ \ / __|/ __|
-           \ \/\/ / \__ \| |_| | | __ ||  _/| (__| (__
-            \_/\_/  |___/ \___/  |_||_||_|   \___|\___|
-            
- *****************************************************************
- * Access to electronic resources at Washington State University *
- * is restricted to faculty, staff and students, or individuals  *
- * authorized by the University or its affiliates. Use of this   *
- * system is subject to all policies and procedures set forth by *
- * Wasington State  University. These policies are located at:   *
- *                                                               *
- * http://infotech.wsu.edu/about/policies/computeruse.html       *
- *                                                               *
- * Unauthorized use is prohibited and may result in              *
- * administrative or legal action.  Washington State University  *
- * may monitor the use of this system for purposes related to    *
- * security management, system operations, and intellectual      *
- * property compliance.                                          *
- *****************************************************************
- 
- QUESTIONS? Please submit all questions, requests, and system 
-            issues to: hpc.support@wsu.edu.
 
- VOL          TOTAL     AVAIL   TOTAL %    YOUR     YOUR   YOUR %
-              SPACE     SPACE     USAGE   USAGE    QUOTA    QUOTA
- HOME       74500.0   34308.0    53.95%   112.0   5120.0    2.19%
- SCRATCH    33467.0    7234.0    78.38%     0.0      0.0     0.0%
- 
 $
 ```
 
-***Note:  When creating this tutorial, my prompt was "$", the commands you will be typing are found to the right of the "$".  Don't type the prompt.***
+***Note:  When creating this tutorial, my prompt was "$", the commands you will be typing are found to the right of the "$".  Don't type the prompt. Your prompt may vary depending on your system and your system administrator.***
 
 ### Viewing the command help pages
 
@@ -118,7 +90,7 @@ $ cd ..
 ```
 When you type ```ls``` and press enter, you should see the tutorials directory that you created earlier.  Now use ```cd``` to change back to the tutorials directory that you created.
 
-### The smart way to change directories
+### A smart way to change directories
 
 There are many times that you will run accross cases where you will want to move in and out of several directories.  It can be tough to keep track of the directories that you have entered and left.  The ```pushd``` command can actually keep track of where you have been like breadcrumbs by pushing your current location on to a stack befor it moves to the next directory.  You can then use the ```popd``` to go back to the last location that was pushed.
 
@@ -128,13 +100,69 @@ To test this out make a few more directories:
 $ mkdir -p pushtest/{one,two,three,four}/{a,b,c,d}
 ```
 
-There's a bit of handwaving over this command, but needless to say this is a quick way to recursively create a directory structure that is three levels deep. The numbered directories will each have an a, b, c, and d directory.
+There's a bit of handwaving over this command, but needless to say this is a quick way to recursively create a directory structure that is three levels deep. The number directories will each have an a, b, c, and d directory.
 
 Use ```pushd``` to wind your way through the directories and see what happens.  Then use ```popd``` to return to where you were.  When you pop back out all the way you may see:
 
 ```text
 $ popd
 -bash: popd: directory stack empty
+```
+
+### A quick aside - Wildcards in Bash
+
+Wildcards are a power tool in your arsenal when it comes to interacting with the shell.  Commands can use wildcards to specify multiple files without typing the list out or dig out text in a file.  There are several useful ones that you will see in this tutorial and that you will probably use on a daily basis.  They include:
+
+#### * (asterisk)
+
+The asterisk can be used to specify any number or type of character.  It will match everything.  As an example:
+
+```text
+*.txt
+```
+
+Will match everything with a ***.txt*** extension, no matter what the file name is.
+
+#### [] (square brackets)
+
+Square brackets specify a range with an explicit ***or*** relationship.  Meaning you only need one to match.  The following pattern will match dig, dog or dug.  
+
+```text
+d[i,o,u]g
+```
+
+When you use a comma to seperate characters, it sees them as individual characters, but if you use a dash it will interperet them as a range of characters.  For example if you want to list the files in a directory that begin with a, b or c you could write your ***ls*** statement like this:
+
+```text
+ls [a-c]*
+```
+
+#### {} (curly brackets)
+
+Curly brackets allow you to group patterns together.  If you wanted to list all of your '.txt' files and your '.log' files you could use the following statement:
+
+```text
+ls {*.txt,*.log}
+```
+
+### One more quick aside - Ranges
+
+Through this tutorial you'll also see the curly brackets used for ***brace*** or ***sequence*** expansion.  When you have a range of characters or integers connected with ***..*** and surounded by brackets, the shell will expand them into their full range.
+
+For instance:
+
+```text
+$ echo {1..9}
+1 2 3 4 5 6 7 8 9
+$ echo {a..i}
+a b c d e f g h i
+```
+
+Newer versions of bash will also do zero padding.
+
+```text
+$ echo {00..10}
+00 01 02 03 04 05 06 07 08 09 10
 ```
 
 ### Get the tutorial files
@@ -261,14 +289,20 @@ hello.txt  moved  shakespeare-comedy-7.txt  World.txt
 The rename command gives you a little more flexibility when it comes to renaming multiple files at the same time.  Let's say that you wanted to take all of your text files in your directory and rename them to have a *.backup* extension before you started creating new ones.  You could use the ***rename*** command to take the .txt extension and turn it into .txt.backup
 
 ```text
+$ mkdir rename
+$ pushd rename
+~/tutorial/rename ~/tutorial
+$ touch test{1..10}.log
 $ ls
-hello.txt  moved  shakespeare-comedy-7.txt  World.txt
-$ rename .txt .txt.backup *.txt
+test10.log  test2.log  test4.log  test6.log  test8.log
+test1.log   test3.log  test5.log  test7.log  test9.log
+$ rename .log .log.bak *.log
 $ ls
-hello.txt.backup  moved  shakespeare-comedy-7.txt.backup  World.txt.backup
+test10.log.bak  test2.log.bak  test4.log.bak  test6.log.bak  test8.log.bak
+test1.log.bak   test3.log.bak  test5.log.bak  test7.log.bak  test9.log.bak
+$ popd
+$ rm -r rename
 ```
-
-*Note the asterisk in \*.txt.  This is called a wildcard and in this context means all files that have the extension 'txt'.  For additional information on wildcards see [this tutorial](http://www.ee.surrey.ac.uk/Teaching/Unix/unix4.html)*
 
 You can also move or rename entire directories along with their contents.
 
@@ -279,4 +313,5 @@ $ ls moveme
 $ mv moveme moved
 $ ls moved
 1  2  3  4
+$ rm -r moved
 ```

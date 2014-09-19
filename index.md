@@ -22,7 +22,7 @@ The HPC user guide is designed to serve as an introduction to the WSU high perfo
 * [Qsub basics](/hpcc-training/using-qsub)
 * [Wrapping qsub](/hpcc-training/wrapping-qsub)
 * [Introduction to MPI](/hpcc-training/mpi-intro)
-* [Submitting MPI](/hpcc-training/mpi-submission)
+* [Submitting MPI jobs](/hpcc-training/mpi-submission)
 
 ### Inline help
 

@@ -7,7 +7,7 @@ Many things that you want to do on the HPC systems will require alot of commands
 
 ## Your first shell script
 
-To create your first shell script open up your text editor and type:
+To create your first shell script, change back to your tutorials directory, open up your text editor and type:
 
 ```sh
 #!/bin/bash
@@ -42,16 +42,6 @@ Congratulations!  You have just created your first shell script.  Now let's actu
 
 ## Your next shell script
 
-To give us some files to work with, download some files containing the text of several plays by Shakespeare.
-
-```text
-~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-comedy-7.txt
-~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-hamlet-25.txt
-~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-romeo-48.txt
-~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-taming-2.txt
-~/tutorial $ wget http://www.textfiles.com/etext/AUTHORS/SHAKESPEARE/shakespeare-tragedy-58.txt
-```
-
 We will be creating a shell script that will provide us some statistics on the files including the number of characters, words, and lines.  To do this, you will learn about environment variables, arguments, and several new commands to mine information from files.
 
 ### The first pass
@@ -60,14 +50,14 @@ Our first pass at this problem will be to pass the file along to a command calle
 
 ```sh
 #!/bin/bash
-wc shakespeare-comedy-7.txt
+wc hpcc-training/testdata/shakespeare-comedy-7.txt
 ```
 
 Use the ```chmod``` command to give the file execute permissions and run it:
 
 ```text
-~/tutorial $ ./stats.sh 
- 2851 16252 89439 shakespeare-comedy-7.txt
+$ ./stats.sh 
+ 2851 16252 89439 hpcc-training/testdata/shakespeare-comedy-7.txt
 ```
 
 The ```wc``` command has given us the number of lines (2851), the number of words (16252) and the number of characters (89439) in the file.  This has given us what we wanted, but it is not very friendly.  Without reading the manual, it would be hard to tell what the values are, so let try to make it a little more clear.  To do this we need to explain two new concepts.  Pipes and variables  
@@ -77,7 +67,7 @@ The ```wc``` command has given us the number of lines (2851), the number of word
 Pipes are similar to the *redirection* concept that you learned in the previous section, but instead of redirecting the output to a file we send the output of one command to the input of another by connecting them with the ```|``` character.  To see this in action, type the following command:
 
 ```text
-~/tutorial $ echo "This goes to the next command" | wc
+$ echo "This goes to the next command" | wc
       1       6      30
 ```
 
@@ -92,7 +82,7 @@ TERM=xterm
 SHELL=/bin/bash
 ...
 PWD=/home/go.cougs/tutorial
-PS1=\[\033[01;32m\]\u@\h\[\033[01;34m\] \w $\[\033[00m\] 
+PS1=$ 
 HOME=/home/go.cougs
 LOGNAME=go.cougs
 ```
@@ -106,12 +96,12 @@ login1
 go.cougs
 ```
 
-For our script, we will define our own variables to store the information that we get from ```wc``` and then pipe and store the output to another command called cut which cuts a line based on a delimiter.  We can then output the lines, words and characters in a more friendly manner.  Add these changes to your script:
+For our script, we will define our own variables to store the information that we get from ```wc``` and then pipe and store the output to another command called ```cut``` which cuts a line based on a delimiter.  We can then output the lines, words and characters in a more friendly manner.  Add these changes to your script:
 
 ```sh
 #!/bin/bash
 
-OUTPUT=`wc shakespeare-comedy-7.txt`
+OUTPUT=`wc hpcc-training/testdata/shakespeare-comedy-7.txt`
 
 LINES=`echo $OUTPUT | cut -d' ' -f1`
 WORDS=`echo $OUTPUT | cut -d' ' -f2`
@@ -137,7 +127,7 @@ That's better, but now we need to do the same thing to our other files.  We coul
 
 ### Arguments, conditionals and special variables
 
-You've seen arguments before.  We have used them with ```ls```, ```wget```, ```cut```, and so on.  They are the information that you pass to the command that lets the command know what to do, what file to work on, and where to put it after you are done.  The bash program will automatically grab everything after the command and create special variables that contain information about the arguments and the arguments themselves.  These special variables include:
+You've seen arguments before.  We have used them with ```ls```, ```cut```, and so on.  They are the information that you pass to the command that lets the command know what to do, what file to work on, and where to put it after you are done.  The bash program will automatically grab everything after the command and create special variables that contain information about the arguments and the arguments themselves.  These special variables include:
 
 * ```$#``` - Contains the number of arguments.
 * ```$1``` - Contains the first argument.
@@ -194,12 +184,12 @@ If everything works, you will see:
 ```text
 ~/tutorial $ ./stats.sh 
 You need to give me a filename!
-~/tutorial $ ./stats.sh shakespeare-comedy-7.txt 
+~/tutorial $ ./stats.sh hpcc-training/testdata/shakespeare-comedy-7.txt 
 Getting stats for shakespeare-comedy-7.txt
 Lines: 2851
 Words: 16252
 Characters: 89439
-~/tutorial $ ./stats.sh shakespeare-romeo-48.txt 
+~/tutorial $ ./stats.sh hpcc-training/testdata/shakespeare-romeo-48.txt 
 Getting stats for shakespeare-romeo-48.txt
 Lines: 4579
 Words: 25919
@@ -252,12 +242,12 @@ To process multiple files we start off by adjusting the conditional statement to
 If everything works you will see:
 
 ```text
-~/tutorial $ ./stats.sh shakespeare-romeo-48.txt 
+~/tutorial $ ./stats.sh hpcc-training/testdata/shakespeare-romeo-48.txt 
 Getting stats for shakespeare-romeo-48.txt
 Lines: 4579
 Words: 25919
 Characters: 144138
-~/tutorial $ ./stats.sh shakespeare-comedy-7.txt shakespeare-romeo-48.txt 
+~/tutorial $ ./stats.sh hpcc-training/testdata/shakespeare-comedy-7.txt hpcc-training/testdata/shakespeare-romeo-48.txt 
 Getting stats for shakespeare-comedy-7.txt
 Lines: 2851
 Words: 16252

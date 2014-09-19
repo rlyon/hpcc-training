@@ -67,14 +67,14 @@ $ make
 $ make install
 ```
 
-One those commands have been run, if there were no errors, you will find your program installed in a directory called 'bin' at the prefix that we passed to the the configure command.
+Once those commands have been run, if there were no errors, you will find your program installed in a directory called 'bin' at the prefix that we passed to the the configure command.
 
 ```text
 $ ls $HOME/freak/0.0.1/bin/
 freak
 ```
 
-In order to execute the file without typing the full path every time, you will either need to add $HOME/freak/0.0.1/bin to your PATH variable or since we are using modules, we can hae the environment modules program make those adjustments for us when we load our freak module. This also helps with sharing the application across the system.
+In order to execute the file without typing the full path every time, you will either need to add $HOME/freak/0.0.1/bin to your PATH variable or since we are using modules, we can have the environment modules program make those adjustments for us when we load our freak module. This also helps with sharing the application across the system.
 
 ### Create your modulefile
 
@@ -98,7 +98,7 @@ proc ModulesHelp { } {
 module-whatis   "Adds freak 0.0.1 to your environment."
 
 ## Add freak bin directory to the path
-prepend-path     PATH    ~/
+prepend-path     PATH    ~/apps/freak/0.0.1/bin
 
 ## Set an aliases
 set-alias       "ff"    "freak"

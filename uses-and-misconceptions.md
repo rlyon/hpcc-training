@@ -6,7 +6,7 @@ title: Uses and Misconceptions
 
 ### Uses
 
-At it's core, high performance compute clusters are a bunch of components linked together that can use special libraries to spread your workload across many hundreds of cores.  They have found a home in almost every corner of research.  Be it academic or private, supercomputers can be be used for:
+At it's core, high performance compute clusters are a bunch of components linked together that can use special libraries to spread your workload across many hundreds of cores.  They have found a home in almost every corner of research.  Be it academic or private, supercomputers can be be used for many things including:
 
 * Weather simulation and modeling
 * Engineering simulations

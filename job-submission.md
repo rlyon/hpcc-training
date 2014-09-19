@@ -12,7 +12,8 @@ In our basic example, your submission script will only contain the command that 
 Change to the ```tutorial``` directory where you created the ```stats.sh``` script in the previous tutorial.  Now using the text editor, create a file called ```stats.pbs``` and put the following line in it:
 
 ```sh
-./stats.sh *.txt 
+cd $HOME/tutorial
+./stats.sh $HOME/tutorial/hpcc-training/testdata/*.txt 
 ```
 
 You will notice that even though the script is technically a shell script, that I used the file extension ```pbs```.  You can use any extension when you create your file and it will work the same.  Using the ```pbs``` extension will help to differentiate your submission scripts from other regular shell scripts. 

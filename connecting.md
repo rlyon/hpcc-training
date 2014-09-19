@@ -32,13 +32,13 @@ You will be asked for your login name and password that was sent to you when you
 
 As stated before, you can use the ***Terminal*** Application for OSX or if you are using Linux you can use one of the many terminal applications available.  To interact with our systems you will use the ***ssh*** command directly from the terminal.  The ***ssh*** command at the very least requires the name of the server that you will be connecting to, but can also take the username and several other parameters as well.  If a username is not supplied, it will default to the *local* user that you are running the terminal with.  To connect using both a username and server name you will use something like this:
 
-```sh
+```text
 # ssh go.cougs@hpclogin1.wsu.edu
 ```
 
 Where you would replace 'go.cougs' with your username.  If this is your first time connecting you will be asked to verify the authenticity of the host that you are connecting to.
 
-```sh
+```text
 The authenticity of host 'hpclogin1.wsu.edu (134.121.141.14)' can't be established.
 RSA key fingerprint is 52:c6:6a:80:85:4c:07:34:8d:36:f0:72:b5:db:9a:6b.
 Are you sure you want to continue connecting (yes/no)?

@@ -11,7 +11,7 @@ Up until the 1980s supercomputer used only a few processors, and could only perf
 
 The Cray 1, released in 1976 quickly became the most successful supercomputer in history.  Operating at 80MHz the system introduced vector processing and performance boosting vector and scalar registers which allowed results to be used without expensive memory references.
 
-In 1985, the Cray 2 was released. A liquid cooled system with four processors, the new Cray could operate at 1.9 gigaflops (1.9 billon floating point operations per second).  The Cray 2 was the first supercomputer to run "mainstream" software because a Unix System 5 derived operating system called UniCOS. 
+In 1985, the Cray 2 was released. A liquid cooled system with four processors, the new Cray could operate at 1.9 gigaflops (1.9 billon floating point operations per second).  The Cray 2 was the first supercomputer to run "mainstream" software because of it's Unix System 5 derived operating system called UniCOS. 
 
 ![The Cray 2](images/Cray2.jpg)
 

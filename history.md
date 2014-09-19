@@ -5,7 +5,7 @@ title: A Brief History of HPC
 
 High performance of computing, usually referring to a specific class of systems, also known as supercomputing, has it's roots in the 1960's with the [Atlas](http://en.wikipedia.org/wiki/Atlas_%28computer%29) system designed by the University of Manchester, Ferranti, and Plessey and a line of computers built by Seymour Cray at the Control Data Corperation.
 
-Up until the 1980s supercomputer used only a few processors, and could only perform at their peak about 160 million operations per second.  By todays standards this is slow, but at the time, they were a modern miracle and there was nothing better for processing data.  
+Up until the 1980s supercomputers used only a few processors, and could only perform at their peak about 160 million operations per second.  By todays standards this is slow, but at the time, they were a modern miracle and there was nothing better for processing data.  
 
 ![The Cray 1](images/Cray1.jpg) 
 

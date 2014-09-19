@@ -18,7 +18,7 @@ The HPC user guide is designed to serve as an introduction to the WSU high perfo
 * [Environment modules](/hpcc-training/modules)
 * [Managing your own applications and modules](/hpcc-training/managing-apps)
 * [Job submission](/hpcc-training/job-submission)
-* [Qsub basics](/hpcc-training/qsub-basics)
+* [Qsub basics](/hpcc-training/using-qsub)
 * [Job information](/hpcc-training/job-information)
 * [Introduction to MPI](/hpcc-training/mpi-intro)
 * [Submitting MPI](/hpcc-training/mpi-submission)

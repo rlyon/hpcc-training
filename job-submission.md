@@ -20,7 +20,7 @@ You will notice that even though the script is technically a shell script, that 
 Hand off the submission script to the cluster by running the ```qsub``` command:
 
 ```text
-go.cougs@login1 ~/tutorial $ qsub stats.pbs 
+$ qsub stats.pbs 
 4917957.mgt1.wsuhpc.edu
 ```
 ## Qsub
@@ -30,7 +30,7 @@ The ```qsub``` command that was run above displayed a job identifier that you ca
 It may take a few minutes for the job to get picked up by the scheduler and if the cluster is busy, it may take a while for it to actually be run.  You can check on the status of your job with the ```qstat``` command.
 
 ```text
-go.cougs@login1 ~/tutorial $ qstat
+$ qstat
 Job id                    Name             User            Time Use S Queue
 ------------------------- ---------------- --------------- -------- - -----
 4917957.mgt1              stats.pbs        go.cougs        0        Q batch
@@ -64,9 +64,9 @@ When you list the files in the directory you will see two new files.
 
 ```text
 go.cougs@login1 ~/tutorial $ ls
-hello.sh          shakespeare-comedy-7.txt   shakespeare-taming-2.txt    stats.pbs.e4917957  World.txt.backup
-hello.txt.backup  shakespeare-hamlet-25.txt  shakespeare-tragedy-58.txt  stats.pbs.o4917957
-moved             shakespeare-romeo-48.txt   stats.pbs                   stats.sh
+hello.sh          stats.pbs.e4917957  stats.sh
+hello.txt.backup  stats.pbs.o4917957  World.txt.backup
+moved             stats.pbs                 
 ```
 
 The new files for this run are ```stats.pbs.o4917957``` and ```stats.pbs.e4917957```.  Some of the components of this file name should look familiar.  The stats.pbs portion is the filename that we gave to ```qsub```, but it is also the job name.  The numerical value on the end of the file name is the numerical portion of the job ID.  The ```o``` and the ```e``` portion of the file represent the output and error streams.

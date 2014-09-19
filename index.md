@@ -16,7 +16,7 @@ The HPC user guide is designed to serve as an introduction to the WSU high perfo
 * [The shell](/hpcc-training/shell)
 * [Shell Scripts](/hpcc-training/shell-scripts)
 * [Environment modules](/hpcc-training/modules)
-* [Managing your own applications and modules](/hpcc-training/modules)
+* [Managing your own applications and modules](/hpcc-training/managing-apps)
 * [Job Submission](/hpcc-training/job-submission)
 * [Qsub Basics](/hpcc-training/qsub-basics)
 * [Job Information](/hpcc-training/job-information)

@@ -53,7 +53,7 @@ cd $PBS_O_WORKDIR
 mpirun hello
 ```
 
-In this submission script we are using ```directives``` to pass options to qsub.  In a PBS environment, the directive lines will allways begin with ```#PBS```.  The script also ensures that the 
+In this submission script we are using ```directives``` to pass options to qsub.  In a PBS environment, the directive lines will allways begin with ```#PBS```.  The script uses these directives to manage the output streams, files and make sure we are getting 4x4 processors.
 
 
 ```text
@@ -82,4 +82,4 @@ Process 13 on node4 out of 16
 
 One thing to notice is that the processes did not report back in order.  MPI does not guarantee order.  The main process spawns the others and they report back when they have finished.  The time that it takes can be affected by may different things including latency, other processes running on the nodes, system load etc.
 
-Also note that even though we asked for 4 different nodes, that we only ran on 2 distinct nodes.  In this case the scheduler asked the batch server for a node with 4 processors and the batch server responded with node5.  When it asked again node 5 still had resources available so it was passed back to the scheduler.  It was only when node 5 did not have any more resources that node 4 was passed back.
+Also note that even though we asked for 4 different nodes, that we only ran on 2 distinct nodes.  In this case the scheduler asked the batch server for a node with 4 processors and the batch server responded with node5.  When it asked again node 5 still had resources available so it was passed back to the scheduler.  It was only when node 5 did not have any more resources that node 4 was passed back.  What is guaranteed is that there will be 4 processors on the node that is returned.

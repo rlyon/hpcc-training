@@ -99,12 +99,12 @@ qsub -v NAME="Butch" myscript.pbs
 
 ### Passing your environment
 
-In certain cases you may want to pass your entire environment to a script.  In the previous section introduced you to the shell, you used a command called ```env``` to list out all of your current environment variables.  Use the ```-J``` option to send all variables listed in this output along with the script to the batch server.
+In certain cases you may want to pass your entire environment to a script.  In the previous section introduced you to the shell, you used a command called ```env``` to list out all of your current environment variables.  Use the ```-V``` option to send all variables listed in this output along with the script to the batch server.
 
 #### Example
 
 ```sh
-qsub -J myscript.pbs
+qsub -V myscript.pbs
 ```
 
 ### Environment variables available to scripts

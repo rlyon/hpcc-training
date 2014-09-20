@@ -110,7 +110,7 @@ qsub -V myscript.pbs
 ### Environment variables available to scripts
 There are several variables that are set by the batch server at times throughout the lifecycle of a job.  These variables are available to any script that is passed to the batch server using ```qsub```.  In the next section, you will use some of these to modify the file stats script that was created in the previous section.
 
-#### PBS_O_WORKDIR
+#### PBS\_O\_WORKDIR
 
 Probably, the most common environment variable you will use, this is the directory where the qsub command was run from.
 
@@ -126,7 +126,7 @@ The job name that has been assigned to the job.
 
 This will be set to the value *PBS_BATCH* to indicate the job is being run as a non interactive job, or *PBS_INTERACTIVE* to indicate the job is being run as interactive.
 
-#### PBS_O_QUEUE
+#### PBS\_O\_QUEUE
 
 The name of the original queue that the job was submitted to.
 
@@ -134,7 +134,7 @@ The name of the original queue that the job was submitted to.
 
 The name of the queue from which the job was executed from.
 
-#### PBS_O_HOST
+#### PBS\_O\_HOST
 
 The name of the host where the qsub command was run from.  In our environment it will be *login1* or *login2*.
 

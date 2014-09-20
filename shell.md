@@ -291,7 +291,7 @@ The rename command gives you a little more flexibility when it comes to renaming
 ```text
 $ mkdir rename
 $ pushd rename
-~/tutorial/rename ~/tutorial
+~/hpcc-training/rename ~/hpcc-training
 $ touch test{1..10}.log
 $ ls
 test10.log  test2.log  test4.log  test6.log  test8.log

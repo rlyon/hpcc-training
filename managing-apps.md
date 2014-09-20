@@ -70,7 +70,7 @@ $ make install
 Once those commands have been run, if there were no errors, you will find your program installed in a directory called 'bin' at the prefix that we passed to the the configure command.
 
 ```text
-$ ls $HOME/freak/0.0.1/bin/
+$ ls $HOME/apps/freak/0.0.1/bin/
 freak
 ```
 
@@ -135,6 +135,7 @@ freak/0.0.1
 You will now be able to access the application directly from the command line after you load it.
 
 ```text
+$ module load freak/0.0.1
 $ freak $FREAKDATA/shakespeare-life-54.txt
 ```
 

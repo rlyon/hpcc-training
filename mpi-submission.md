@@ -6,10 +6,10 @@ title: Submitting MPI Jobs
 In the mpi folder of the hpcc-tutorials directory there is a test file that we can use to get an understanding of how an MPI program is compiles and submitted.  Move to the directory and open it up.
 
 ```c
-######################################################
-# hello.c
-# http://www.slac.stanford.edu/comp/unix/farm/mpi.html
-######################################################
+/**
+ * hello.c
+ * http://www.slac.stanford.edu/comp/unix/farm/mpi.html
+ */
 #include <stdio.h>
 #include <mpi.h>
 

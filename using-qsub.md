@@ -3,7 +3,7 @@ layout: default
 title: Using qsub
 ---
 
-All of our clusters have a batch server referred to as the cluster management server running on the headnode. This batch server monitors the status of the cluster and controls/monitors the various queues and job lists. Tied into the batch server, a scheduler makes decisions about how a job should be run and its placement in the queue. 
+All of our clusters have a batch server running on the headnode. This batch server monitors the status of the cluster and controls/monitors the various queues and job lists. Tied into the batch server, a scheduler makes decisions about how a job should be run and its placement in the queue. 
 
 Qsub interacts with the batch server to add jobs to the queue.  Once a job has been recieved, the batch server will route the job to the appropriate queue, make sure that the appropriate resources are (or will be) available to run the job and then send back a job identifier to qsub, which in turn will output that identifier to the console.
 

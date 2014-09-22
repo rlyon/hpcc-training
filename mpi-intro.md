@@ -52,5 +52,5 @@ $ mpirun [-np X ] [ --hostfile <filename> ] [program]
 In certain tightly integrated environments where the mpi implimentation has been compiled with knowledge of the batch server, mpirun will contact the batch server for information regarding the number of processors and hosts leaving the user to only specify the program.
 
 ```text
-$ mpirun [[program]
+$ mpirun [program]
 ```
